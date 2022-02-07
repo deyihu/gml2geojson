@@ -38,7 +38,7 @@
         });
 
         const layer = new maptalks.VectorLayer('gml').addTo(map);
-        const files = ['point.gml', 'linestring.gml', 'multilinestring.gml', 'polygon.gml', 'multipolygon.gml', 'WFSServer.xml'];
+        const files = ['point.gml', 'multipoint.gml', 'linestring.gml', 'multilinestring.gml', 'polygon.gml', 'multipolygon.gml', 'WFSServer.xml'];
         Promise.all(files.map(file => {
             return fetch('./' + file).then(res => res.text());
         })).then(data => {
