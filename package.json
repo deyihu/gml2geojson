@@ -1,0 +1,27 @@
+{
+  "name": "gml2geojson",
+  "version": "0.0.1",
+  "license": "MIT",
+  "description": "wfs gml to geojson",
+  "main": "./dist/gml2geojson.js",
+  "module": "src/index.js",
+  "jsnext:main": "src/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "rollup --environment BUILD:production -c rollup.config.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/deyihu/gml2geojson.git"
+  },
+  "author": "deyihu",
+  "bugs": {
+    "url": "https://github.com/deyihu/gml2geojson/issues"
+  },
+  "homepage": "https://github.com/deyihu/gml2geojson#readme",
+  "devDependencies": {
+    "rollup": "^2.67.1",
+    "@rollup/plugin-json": "^4.1.0",
+    "rollup-plugin-terser": "^7.0.2"
+  }
+}
