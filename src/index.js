@@ -1,5 +1,5 @@
 const parser = new DOMParser();
-const GEONODENAMES = ['geometryproperty', 'shape'];
+const GEONODENAMES = ['geometryproperty', 'shape', 'the_geom'];
 
 export function parseGML(str) {
     const geojson = {
@@ -72,7 +72,7 @@ function getFeatureEleGeometry(featureEle, isShape) {
                 }
                 coordinates.push(coords);
             }
-            if (coordinates.length === 1) {
+            if (coordinates.length === 1 && type.indexOf('Multi') === -1) {
                 coordinates = coordinates[0];
             }
         }
