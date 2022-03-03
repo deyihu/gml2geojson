@@ -1,6 +1,6 @@
 {
   "name": "gml2geojson",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "license": "MIT",
   "description": "wfs gml to geojson",
   "main": "./dist/gml2geojson.js",
