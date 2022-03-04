@@ -97,14 +97,14 @@ function getFeatureEleProperties(featureEle) {
     let isShape = false;
     for (let i = 0, len = children.length; i < len; i++) {
         const node = children[i];
-        const nodeName = getNodeName(node, false);
+        const nodeName = getNodeName(node);
         if (isGeoAttribute(nodeName) && node.children.length) {
             if (nodeName.indexOf('shape') > -1) {
                 isShape = true;
             }
             continue;
         }
-        const key = nodeName.split(':')[1];
+        const key = getNodeName(node, false).split(':')[1];
         if (!key) {
             continue;
         }
