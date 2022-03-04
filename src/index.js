@@ -55,7 +55,7 @@ function getFeatureEleGeometry(featureEle, isShape) {
                 return;
             }
         }
-        if (node.children[0].children[0]) {
+        if (node.children[0] && node.children[0].children[0]) {
             const nodeName = getNodeName(node.children[0].children[0]);
             let geoNodes = node.children;
             if (isMulti(nodeName)) {
