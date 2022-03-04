@@ -97,8 +97,8 @@ function getFeatureEleProperties(featureEle) {
     let isShape = false;
     for (let i = 0, len = children.length; i < len; i++) {
         const node = children[i];
-        const nodeName = getNodeName(node);
-        if (isGeoAttribute(nodeName)) {
+        const nodeName = getNodeName(node, false);
+        if (isGeoAttribute(nodeName) && node.children.length) {
             if (nodeName.indexOf('shape') > -1) {
                 isShape = true;
             }
@@ -192,8 +192,12 @@ function findCoordsNode(node) {
     return node;
 }
 
-function getNodeName(node) {
-    return (node.nodeName || '').toLocaleLowerCase();
+function getNodeName(node, lowerCase = true) {
+    if (lowerCase) {
+        return (node.nodeName || '').toLocaleLowerCase();
+    } else {
+        return (node.nodeName || '');
+    }
 }
 
 function geoIsPolygon(type) {
