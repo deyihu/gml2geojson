@@ -43,7 +43,11 @@ function getFeatureEleGeometry(featureEle, isShape) {
     const children = featureEle.children || [];
     let type;
     let coordinates = [];
+    let parseFeture = false;
     for (let i = 0, len = children.length; i < len; i++) {
+        if (parseFeture) {
+            break;
+        }
         const node = children[i];
         const nodeName = getNodeName(node);
         if (!isGeoAttribute(nodeName)) {
@@ -71,6 +75,7 @@ function getFeatureEleGeometry(featureEle, isShape) {
                     coords = coords[0];
                 }
                 coordinates.push(coords);
+                parseFeture = true;
             }
             if (coordinates.length === 1 && type.indexOf('Multi') === -1) {
                 coordinates = coordinates[0];
